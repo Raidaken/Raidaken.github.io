@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Estudiantes</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .formulario-contenedor {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+        .formulario-grupo {
+            margin-bottom: 10px;
+        }
+        .formulario-grupo label {
+            display: block;
+        }
+        .formulario-grupo input, .formulario-grupo select {
+            width: 100%;
+            padding: 5px;
+        }
+        .lista-estudiantes {
+            margin-top: 20px;
+        }
+        .tabla-estudiantes {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        .tabla-estudiantes th, .tabla-estudiantes td {
+            border: 1px solid #ccc;
+            padding: 10px;
+            text-align: left;
+        }
+        .acciones {
+            margin-top: 20px;
+        }
+        .acciones button {
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Lista de Estudiantes</h1>
+    <div class="formulario-contenedor">
+        <div class="formulario-grupo">
+            <label for="name">Nombre:</label>
+            <input type="text" id="name" list="names">
+            <datalist id="names">
+                <!-- Opciones de nombres irán aquí -->
+            </datalist>
+        </div>
+        <div class="formulario-grupo">
+            <label for="subject">Materia:</label>
+            <select id="subject">
+                <option value="Calculo">Cálculo</option>
+                <option value="Fisica">Física</option>
+                <option value="Programacion">Programación</option>
+                <option value="Ingles">Inglés</option>
+            </select>
+        </div>
+        <div class="formulario-grupo">
+            <label for="grade">Nota:</label>
+            <input type="number" id="grade" min="0" max="100">
+        </div>
+        <button onclick="agregarEstudiante()">Agregar Estudiante</button>
+    </div>
+    <div class="lista-estudiantes">
+        <h2>Estudiantes</h2>
+        <table class="tabla-estudiantes">
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Materia</th>
+                    <th>Nota</th>
+                </tr>
+            </thead>
+            <tbody id="students">
+                <!-- Filas de estudiantes irán aquí -->
+            </tbody>
+        </table>
+    </div>
+    <div class="acciones">
+        <button onclick="mostrarMejorEstudiante()">Mejor Alumno</button>
+        <button onclick="mostrarPromedioNotas()">Promedio de Notas</button>
+        <button onclick="mostrarEstudiantesAprobados()">Aprobados en una Materia</button>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>
